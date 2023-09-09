@@ -87,7 +87,7 @@ public class Main extends Application {
 
         network = new NetworkConnection(socket);
 
-        new ReaderThreadOfClient(this,network);
+
     }
     private void ShowLoginPage() throws IOException {
 
@@ -126,6 +126,7 @@ public class Main extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
+        new ReaderThreadOfClient(this,network);
 
         stage.setScene(scene);
         stage.setTitle("Home in page...");

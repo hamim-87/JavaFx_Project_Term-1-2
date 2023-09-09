@@ -1,6 +1,8 @@
 package DataBaseSystem;
 
-public class Food {
+import java.io.Serializable;
+
+public class Food implements Serializable {
     private int RestaurantId;
     private String Category;
     private String Name;

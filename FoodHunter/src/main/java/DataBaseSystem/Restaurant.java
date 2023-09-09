@@ -1,9 +1,10 @@
 package DataBaseSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant{
+public class Restaurant implements Serializable {
     private int Id;
     private String Name;
     private double Score;
@@ -65,7 +66,7 @@ public class Restaurant{
     public String[] getCategoriese() { return this.Categories;}
     public int getCategorySize(){ return CategorySize;}
 
-    private RestaurantDatabaseSystem rds = new RestaurantDatabaseSystem();
+
     public void setFoodList(Food food)
     {
         FoodList.add(food);
