@@ -18,7 +18,7 @@ public class RestaurantApp {
         RestaurantDatabaseSystem rds = new RestaurantDatabaseSystem();
         RestaurantApp app = new RestaurantApp();
 
-
+//
 //        rds.OpenFileForRestaurant(INPUT_FILE_RESTAURANT);
 //
 //        rds.OpenFileForMenu(INPUT_FILE_MENU);

@@ -3,6 +3,7 @@ package Servers;
 import Comunications.*;
 import DataBaseSystem.Food;
 import DataBaseSystem.Restaurant;
+import DataBaseSystem.RestaurantDatabaseSystem;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -40,9 +41,14 @@ public class Server {
         ExtractedFoodList = FO.ReadFileForMenu();
         System.out.println("Food list is loaded..");
 
+        //System.out.println(ExtractedRestaurantList.get(1).getFoodList());
+
+
+
+
         Passwords = FO.getPassword();
         System.out.println("Password collected..");
-        System.out.println(Passwords);
+
 
 
 

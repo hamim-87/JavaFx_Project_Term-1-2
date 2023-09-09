@@ -1,7 +1,10 @@
 package Client;
 
+import Comunications.ListDataTrasferObject;
 import Comunications.NetworkConnection;
 import Controllers.LoginController;
+import DataBaseSystem.Food;
+import DataBaseSystem.Restaurant;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,11 +16,37 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 
     private Stage stage;
     private NetworkConnection network;
+
+
+    private List<Restaurant> ExtractedRestaurnt = new ArrayList<Restaurant>();
+
+    public void SetExtractedRestaurant(List<Restaurant> ExtractedRestaurant)
+    {
+        this.ExtractedRestaurnt = ExtractedRestaurant;
+    }
+
+    public List<Restaurant> getExtractedRestaurnt() {
+        return ExtractedRestaurnt;
+    }
+
+    private List<Food> ExtractedFoodList = new ArrayList<Food>();
+
+    public void setExtractedFoodList(List<Food> ExtractedFoodList)
+    {
+        this.ExtractedFoodList = ExtractedFoodList;
+    }
+
+    public List<Food> getExtractedFoodList() {
+        return ExtractedFoodList;
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

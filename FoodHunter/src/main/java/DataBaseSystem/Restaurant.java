@@ -1,5 +1,8 @@
 package DataBaseSystem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Restaurant{
     private int Id;
     private String Name;
@@ -8,7 +11,7 @@ public class Restaurant{
     private String ZipCode;
     private String[] Categories;
     private int CategorySize;
-    //List<Food> FoodList = new ArrayList<Food>();
+    List<Food> FoodList = new ArrayList<Food>();
     
     public Restaurant(int Id, String Name, double Score, String Price, String ZipCode, String category1, String category2, String category3)
     {
@@ -61,5 +64,16 @@ public class Restaurant{
     public String getZipCode(){ return this.ZipCode; }
     public String[] getCategoriese() { return this.Categories;}
     public int getCategorySize(){ return CategorySize;}
+
+    private RestaurantDatabaseSystem rds = new RestaurantDatabaseSystem();
+    public void setFoodList(Food food)
+    {
+        FoodList.add(food);
+    }
+    public List<Food> getFoodList()
+    {
+
+        return FoodList;
+    }
 
 }

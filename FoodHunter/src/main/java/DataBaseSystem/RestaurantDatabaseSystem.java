@@ -96,7 +96,24 @@ public class RestaurantDatabaseSystem {
         FoodString.add(line);
         String[] MenuDetail = line .split(",",-1);
         Food NewMenu = new Food(Integer.parseInt(MenuDetail[0]),MenuDetail[1],MenuDetail[2],Double.parseDouble(MenuDetail[3]));
+        //
+        Restaurant ToAddFoodToRestaurant = getRestaurantFromId(NewMenu.getRestaurantId());
+        ToAddFoodToRestaurant.setFoodList(NewMenu);
+
         FoodList.add(NewMenu);
+    }
+
+    public Restaurant getRestaurantFromId(int id)
+    {
+        Restaurant dummy = new Restaurant();
+        for(Restaurant r : RestaurantList)
+        {
+            if(r.getId() == id)
+            {
+                return r;
+            }
+        }
+        return dummy;
     }
 
     //<--   SEARCH METHODS   -->
@@ -114,6 +131,8 @@ public class RestaurantDatabaseSystem {
 
         return -1;
     }
+
+
 
     public Restaurant GetSearchedRestaurant(int index)
     {

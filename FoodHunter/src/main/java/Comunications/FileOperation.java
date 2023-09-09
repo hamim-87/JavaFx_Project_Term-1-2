@@ -32,7 +32,34 @@ public class FileOperation {
                 rds.AddRestaurant(line);
             }
             RestaurantBr.close();
-            return rds.getRestaurantList();
+            BufferedReader FoodBr = new BufferedReader(new FileReader(INPUT_FILE_MENU));
+
+
+        List<Restaurant> RestaurantList = rds.getRestaurantList();
+
+        while(true)
+            {
+                String line = FoodBr.readLine();
+                if(line == null) break;
+
+                String[] MenuDetail = line .split(",",-1);
+                //Food NewMenu = new Food(Integer.parseInt(MenuDetail[0]),MenuDetail[1],MenuDetail[2],Double.parseDouble(MenuDetail[3]));
+                Food newMenu = new Food(Integer.parseInt(MenuDetail[0]), MenuDetail[1], MenuDetail[2], Double.parseDouble(MenuDetail[3]));
+
+                for (Restaurant r : RestaurantList)
+                {
+                    if(r.getId() == newMenu.getRestaurantId())
+                    {
+                        r.setFoodList(newMenu);
+                        break;
+                    }
+                }
+
+
+
+            }
+
+            return  RestaurantList;
 
     }
 
@@ -52,6 +79,8 @@ public class FileOperation {
             return rds.getFoodList();
     }
 
+
+
     public ConcurrentHashMap<String,String> getPassword() throws IOException {
         BufferedReader PasswordBr = new BufferedReader(new FileReader(PASSWORD_FILE));
         ConcurrentHashMap<String,String> PasswordMap = new ConcurrentHashMap<>();
@@ -63,6 +92,8 @@ public class FileOperation {
             String[] word = line.split(",",-1);
             PasswordMap.put(word[0],word[1]);
         }
+
+
         return PasswordMap;
 
 

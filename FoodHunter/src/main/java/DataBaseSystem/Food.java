@@ -6,7 +6,7 @@ public class Food {
     private String Name;
     private double Price;
 
-    Food(int RestaurantId, String Category, String Name, double Price)
+    public Food(int RestaurantId, String Category, String Name, double Price)
     {
         this.RestaurantId = RestaurantId;
         this.Category = Category;
@@ -15,9 +15,9 @@ public class Food {
     }
 
     //getters and setters
-    int getRestaurantId() { return RestaurantId; }
-    String getCategory() { return Category; }
-    String getName() { return Name; }
-    double getPrice() { return Price; }
+    public int getRestaurantId() { return RestaurantId; }
+    public  String getCategory() { return Category; }
+    public  String getName() { return Name; }
+    public double getPrice() { return Price; }
 }
 
