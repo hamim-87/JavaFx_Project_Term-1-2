@@ -7,7 +7,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -130,22 +129,19 @@
          </children>
       </HBox>
       <AnchorPane layoutX="-1.0" layoutY="262.0" prefHeight="22.0" prefWidth="1100.0" />
-      <ScrollPane layoutX="546.0" layoutY="284.0" prefHeight="416.0" prefWidth="269.0">
+      <ScrollPane layoutX="442.0" layoutY="284.0" prefHeight="416.0" prefWidth="380.0">
          <content>
-            <GridPane>
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
+            <GridPane fx:id="Foodgrid" prefHeight="13.0" prefWidth="54.0">
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
          </content>
       </ScrollPane>
-      <AnchorPane layoutX="815.0" layoutY="284.0" prefHeight="416.0" prefWidth="286.0" />
-      <ScrollPane fx:id="ScrollRestaurant" layoutX="5.0" layoutY="284.0" prefHeight="416.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="645.0">
+      <AnchorPane layoutX="855.0" layoutY="284.0" prefHeight="416.0" prefWidth="246.0" />
+      <ScrollPane fx:id="ScrollRestaurant" layoutX="-1.0" layoutY="284.0" prefHeight="416.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="679.0">
          <content>
-            <AnchorPane prefHeight="95.0" prefWidth="536.0">
+            <AnchorPane prefHeight="95.0" prefWidth="420.0">
                <children>
                   <GridPane fx:id="gridRestaurant" layoutY="22.0" prefHeight="0.0" prefWidth="57.0">
                     <rowConstraints>
