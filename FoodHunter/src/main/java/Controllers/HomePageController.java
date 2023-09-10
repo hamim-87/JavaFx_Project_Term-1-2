@@ -65,6 +65,9 @@ public class HomePageController implements Initializable {
     @FXML
     private GridPane gridRestaurant;
 
+
+    @FXML
+    private AnchorPane RestaurantCard;
     private List<Restaurant> RestaurantList = new ArrayList<>();
 
     public  void setRestaurantList(List<Restaurant> restaurantList)
@@ -76,9 +79,9 @@ public class HomePageController implements Initializable {
     {
         return RestaurantList;
     }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Test
+
+    public void ShowRestaurants()
+    {
         FileOperation Fo = new FileOperation();
         try {
             setRestaurantList(Fo.ReadFileForRestaurant());
@@ -135,7 +138,13 @@ public class HomePageController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Test
 
+        ShowRestaurants();
 
 
 

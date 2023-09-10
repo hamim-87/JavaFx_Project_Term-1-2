@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="126.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RestaurantCardController">
+<AnchorPane fx:id="RestaurantCard" prefHeight="126.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RestaurantCardController">
    <children>
-      <VBox fx:id="RestaurantCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="425.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="425.0">
          <children>
             <AnchorPane prefHeight="133.0" prefWidth="425.0">
                <children>
@@ -47,12 +47,12 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label fx:id="cat2" layoutX="16.0" layoutY="47.0" prefHeight="15.0" prefWidth="188.0" text="cat2">
+                        <Label fx:id="cat2" layoutX="16.0" layoutY="47.0" prefHeight="15.0" prefWidth="188.0">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label fx:id="cat3" layoutX="118.0" layoutY="27.0" prefHeight="15.0" prefWidth="95.0" text="cat3">
+                        <Label fx:id="cat3" layoutX="118.0" layoutY="27.0" prefHeight="15.0" prefWidth="95.0">
                            <font>
                               <Font size="10.0" />
                            </font>
