@@ -21,7 +21,7 @@ public class ReaderThreadOfClient implements Runnable{
         this.main = main;
         this.network = network;
         t = new Thread(this);
-        System.out.println("hehe");
+
 
 
         t.start();

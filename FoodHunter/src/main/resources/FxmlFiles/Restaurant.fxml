@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="126.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RestaurantCardController">
+   <children>
+      <VBox fx:id="RestaurantCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="425.0">
+         <children>
+            <AnchorPane prefHeight="133.0" prefWidth="425.0">
+               <children>
+                  <AnchorPane layoutX="210.0" layoutY="-3.0" prefHeight="70.0" prefWidth="217.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="21.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/restaurantcardlogo.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="RestaurantName" layoutX="46.0" layoutY="6.0" prefHeight="44.0" prefWidth="134.0" text="KFC" textAlignment="CENTER">
+                           <font>
+                              <Font name="Book Antiqua" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="RestaurantPrice" layoutX="113.0" layoutY="47.0" text="price" />
+                        <ImageView fitHeight="13.0" fitWidth="21.0" layoutX="90.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/priceRestaurantCard.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="13.0" fitWidth="21.0" layoutX="21.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/starRestaurantCard.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="RestaurantScore" layoutX="35.0" layoutY="50.0" prefHeight="17.0" prefWidth="37.0" text="score" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="208.0" layoutY="63.0" prefHeight="77.0" prefWidth="217.0">
+                     <children>
+                        <Label fx:id="cat1" layoutX="16.0" layoutY="27.0" text="cat1">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cat2" layoutX="16.0" layoutY="47.0" prefHeight="15.0" prefWidth="188.0" text="cat2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cat3" layoutX="118.0" layoutY="27.0" prefHeight="15.0" prefWidth="95.0" text="cat3">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="25.0" layoutY="4.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@../Image/zipcodeRestaurantCard.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="zipcode" layoutX="53.0" layoutY="6.0" text="zip code" />
+                     </children>
+                  </AnchorPane>
+                  <ImageView fx:id="CardImage" fitHeight="143.0" fitWidth="210.0" layoutY="-3.0" pickOnBounds="true" smooth="false">
+                     <image>
+                        <Image url="@../Image/KFC.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

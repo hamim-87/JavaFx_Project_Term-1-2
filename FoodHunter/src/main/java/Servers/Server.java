@@ -60,33 +60,6 @@ public class Server {
             Socket socket = serverSocket.accept();
             System.out.println("Client connected..");
 
-//            NetworkConnection nc = nc = new NetworkConnection(socket);
-//            Object fromClient = nc.read();
-//
-//            if(fromClient instanceof LoginDataTransferObject)
-//            {
-//                LoginDataTransferObject LoginDTO = new LoginDataTransferObject();
-//                LoginDTO = (LoginDataTransferObject) fromClient;
-//                if(Passwords.containsKey(LoginDTO.getUserName()))
-//                {
-//                    System.out.println("Valid user");
-//                    String RealPass = Passwords.get(LoginDTO.getUserName());
-//                    if(RealPass.equals(LoginDTO.getPassword()))
-//                    {
-//                        LoginDTO.setStatus(true);
-//                        nc.write(ExtractedRestaurantList);
-//                        System.out.println(LoginDTO.getUserName()+ " Logged in...");
-//                    }
-//                    else{
-//                        nc.write(LoginDTO);
-//                    }
-//                }
-//                else{
-//                    nc.write(LoginDTO);
-//                }
-//
-//            }
-
             // new Server Thread Start...
             new NewThreadServer(socket,this);
 

@@ -41,7 +41,10 @@ public class LoginController {
         }
         else{
             RestaurantList = (List<Restaurant>) o;
-            System.out.println("List Found..");
+            main.SetExtractedRestaurant(RestaurantList);
+
+
+            main.ShowHomePage();
         }
 
     }

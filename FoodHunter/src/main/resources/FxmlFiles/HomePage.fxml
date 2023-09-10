@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HomePageController">
    <children>
       <HBox layoutX="7.0" layoutY="8.0" prefHeight="150.0" prefWidth="1100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -130,19 +130,7 @@
          </children>
       </HBox>
       <AnchorPane layoutX="-1.0" layoutY="262.0" prefHeight="22.0" prefWidth="1100.0" />
-      <ScrollPane layoutX="7.0" layoutY="284.0" prefHeight="416.0" prefWidth="423.0">
-         <content>
-            <GridPane>
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-         </content>
-      </ScrollPane>
-      <ScrollPane layoutX="430.0" layoutY="284.0" prefHeight="416.0" prefWidth="385.0">
+      <ScrollPane layoutX="546.0" layoutY="284.0" prefHeight="416.0" prefWidth="269.0">
          <content>
             <GridPane>
               <columnConstraints>
@@ -155,5 +143,18 @@
          </content>
       </ScrollPane>
       <AnchorPane layoutX="815.0" layoutY="284.0" prefHeight="416.0" prefWidth="286.0" />
+      <ScrollPane fx:id="ScrollRestaurant" layoutX="5.0" layoutY="284.0" prefHeight="416.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="645.0">
+         <content>
+            <AnchorPane prefHeight="95.0" prefWidth="536.0">
+               <children>
+                  <GridPane fx:id="gridRestaurant" layoutY="22.0" prefHeight="0.0" prefWidth="57.0">
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

@@ -65,12 +65,12 @@ public class Main extends Application {
 
         ConnectServer();
         System.out.println("Client Connected..");
+//
+//        ShowLoginPage();
+//        System.out.println("login page loaded.");
 
-        ShowLoginPage();
-        System.out.println("login page loaded.");
-
-//        ShowHomePage();
-//        System.out.println("Home page loaded..");
+        ShowHomePage();
+        System.out.println("Home page loaded..");
 
 
 
