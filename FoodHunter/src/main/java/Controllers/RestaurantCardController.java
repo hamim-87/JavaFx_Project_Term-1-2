@@ -1,10 +1,12 @@
 package Controllers;
 
+import Client.MyListListener;
 import DataBaseSystem.Restaurant;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -36,17 +38,27 @@ public class RestaurantCardController {
     @FXML
     private Label zipcode;
 
-    Restaurant Restaurant;
+    private Restaurant Restaurant;
 
+
+
+
+
+    private MyListListener myListListener;
     public static String ImagePath(String name)
     {
         String imgsrc ="/Image/"+name+".png";
         return imgsrc;
     }
+    public void clickedRestaurant(MouseEvent mouseEvent)
+    {
+        myListListener.onclickRestaurantListener(Restaurant);
+    }
 
-    public void setData(Restaurant restaurant)
+    public void setData(Restaurant restaurant,MyListListener myListListener)
     {
         this.Restaurant = restaurant;
+        this.myListListener = myListListener;
         RestaurantName.setText(Restaurant.getName());
         RestaurantScore.setText(Double.toString(Restaurant.getScore()));
 

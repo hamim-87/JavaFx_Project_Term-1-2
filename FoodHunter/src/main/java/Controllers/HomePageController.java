@@ -1,5 +1,6 @@
 package Controllers;
 
+import Client.MyListListener;
 import Comunications.FileOperation;
 import DataBaseSystem.Restaurant;
 import javafx.fxml.FXML;
@@ -65,6 +66,8 @@ public class HomePageController implements Initializable {
     @FXML
     private GridPane gridRestaurant;
 
+    private MyListListener myListListener;
+
 
     @FXML
     private AnchorPane RestaurantCard;
@@ -80,6 +83,11 @@ public class HomePageController implements Initializable {
         return RestaurantList;
     }
 
+    public void setChosenRestaurant(Restaurant restaurant)
+    {
+        System.out.println(restaurant.getName());
+    }
+
     public void ShowRestaurants()
     {
         FileOperation Fo = new FileOperation();
@@ -92,6 +100,16 @@ public class HomePageController implements Initializable {
             throw new RuntimeException(e);
         }
         //main part
+
+        if(RestaurantList.size()>0)
+        {
+            myListListener = new MyListListener() {
+                @Override
+                public void onclickRestaurantListener(Restaurant restaurant) {
+                    setChosenRestaurant(restaurant);
+                }
+            };
+        }
 
         try {
             int row = 0;
@@ -106,7 +124,7 @@ public class HomePageController implements Initializable {
 
 
                 RestaurantCardController restaurantCardController = fxmlLoader.getController();
-                restaurantCardController.setData(RestaurantList.get(i));
+                restaurantCardController.setData(RestaurantList.get(i),myListListener);
 
                 AnchorPane dummy = new AnchorPane();
                 dummy.setMaxWidth(400);
@@ -130,7 +148,7 @@ public class HomePageController implements Initializable {
                 gridRestaurant.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 gridRestaurant.setMaxHeight(Region.USE_PREF_SIZE);
 
-                GridPane.setMargin(anchorPane,new Insets(20));
+                GridPane.setMargin(anchorPane,new Insets(10));
 
 
 

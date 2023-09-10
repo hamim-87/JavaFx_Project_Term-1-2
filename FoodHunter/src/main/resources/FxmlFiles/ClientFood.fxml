@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox layoutY="-4.0" prefHeight="127.0" prefWidth="378.0">
+            <children>
+                <AnchorPane prefHeight="125.0" prefWidth="378.0">
+                    <children>
+                        <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/foodCardlogo.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="foodName" layoutX="41.0" layoutY="18.0" text="Food">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="14.0" fitWidth="11.0" layoutX="19.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/foodCat.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="foodCat" layoutX="41.0" layoutY="54.0" prefHeight="17.0" prefWidth="258.0" text="cat" />
+                        <ImageView fitHeight="14.0" fitWidth="11.0" layoutX="19.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/restaurantcardlogo.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="restaurant" layoutX="41.0" layoutY="86.0" prefHeight="17.0" prefWidth="104.0" text="restaurant">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="317.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/Foodprice.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="foodprice" layoutX="337.0" layoutY="21.0" text="100.12">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <HBox layoutX="248.0" layoutY="43.0" prefHeight="40.0" prefWidth="129.0">
+                            <children>
+                                <AnchorPane prefHeight="28.0" prefWidth="140.0">
+                                    <children>
+                                        <Button fx:id="IncreaseItem" layoutX="95.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" text="+" />
+                                        <Label fx:id="foodcounter" layoutX="57.0" layoutY="10.0" prefHeight="25.0" prefWidth="34.0" text="1" textAlignment="RIGHT">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="decreaseItem" layoutX="22.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" text="-" />
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </HBox>
+                        <Button fx:id="Addtocard" layoutX="196.0" layoutY="98.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="182.0" text="ADD TO CARD" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
