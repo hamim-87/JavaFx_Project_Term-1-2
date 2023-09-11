@@ -6,6 +6,7 @@ import Comunications.FileOperation;
 import Comunications.LoginDataTransferObject;
 import DataBaseSystem.Food;
 import DataBaseSystem.Restaurant;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,6 +14,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -72,6 +74,10 @@ public class HomePageController {
     @FXML
     private GridPane Foodgrid;
 
+
+    @FXML
+    private TextField Search;
+
     private MyListListener myListListener;
 
     private Main main;
@@ -100,16 +106,19 @@ public class HomePageController {
 
 
 
+
+
     public void setChosenRestaurant(Restaurant restaurant) throws IOException {
         //System.out.println("hehe");
         Foodgrid.getChildren().clear();
-        FoodList.clear();
+
         updateFoodList(restaurant.getFoodList());
         showFoods();
     }
 
     public void updateRestaurantList(List<Restaurant> restaurantList)
     {
+
         this.RestaurantList = restaurantList;
     }
 
@@ -275,5 +284,113 @@ public class HomePageController {
 
     public void setMain(Main main) {
         this.main = main;
+    }
+
+
+
+    //on action event
+
+    public void RestaurantByName(ActionEvent actionEvent) throws IOException {
+        String name = Search.getText();
+
+        //sout
+        System.out.println(name);
+        if(name == "" || name == null) return;
+
+        List<Restaurant> Temp = new ArrayList<>();
+        for(int i=0;i<LogInDTO.getRestaurantList().size();i++)
+        {
+            System.out.println(LogInDTO.getRestaurantList().get(i).getName());
+            if(LogInDTO.getRestaurantList().get(i).getName().toLowerCase().contains(name))
+            {
+                Temp.add(LogInDTO.getRestaurantList().get(i));
+            }
+        }
+
+
+        updateRestaurantList(Temp);
+        gridRestaurant.getChildren().clear();
+
+        ShowRestaurants();
+        updateFoodList(Temp.get(0).getFoodList());
+        showFoods();
+        Search.setText("");
+    }
+
+    public void RestaurantByScore(ActionEvent actionEvent) throws IOException {
+        String line = Search.getText();
+        String[] dig = line.split(",",-1);
+        double num1 = Double.parseDouble(dig[0]);
+        double num2 = Double.parseDouble(dig[1]);
+
+        List<Restaurant> list = new ArrayList<Restaurant>();
+
+        for(Restaurant r : LogInDTO.getRestaurantList())
+        {
+            double score = r.getScore();
+            if(num1<= score && num2>= score)
+            {
+                list.add(r);
+            }
+        }
+
+        updateRestaurantList(list);
+        gridRestaurant.getChildren().clear();
+
+        ShowRestaurants();
+        updateFoodList(list.get(0).getFoodList());
+        showFoods();
+        Search.setText("");
+    }
+
+    public void RestaurantByCategory(ActionEvent actionEvent) throws IOException {
+        String cat = Search.getText();
+        List<Restaurant> list = new ArrayList<Restaurant>();
+        for(Restaurant r : LogInDTO.getRestaurantList())
+        {
+            for(int i = 0;i< r.getCategorySize();i++)
+            {
+                if(r.getCategoriese()[i].toLowerCase().contains(cat))
+                {
+                    list.add(r);
+                }
+            }
+        }
+
+        updateRestaurantList(list);
+        gridRestaurant.getChildren().clear();
+
+        ShowRestaurants();
+        updateFoodList(list.get(0).getFoodList());
+        showFoods();
+        Search.setText("");
+    }
+
+    public void RestaurantByZipcode(ActionEvent actionEvent) throws IOException {
+
+        String Zipcode = Search.getText();
+        List<Restaurant> list = new ArrayList<Restaurant>();
+        for(Restaurant r : LogInDTO.getRestaurantList())
+        {
+
+            if(r.getZipCode().toLowerCase().contains(Zipcode))
+            {
+                list.add(r);
+            }
+        }
+
+        updateRestaurantList(list);
+        gridRestaurant.getChildren().clear();
+
+        ShowRestaurants();
+        updateFoodList(list.get(0).getFoodList());
+        showFoods();
+        Search.setText("");
+
+
+    }
+
+    public void CatWiseRestaurant(ActionEvent actionEvent) {
+
     }
 }
