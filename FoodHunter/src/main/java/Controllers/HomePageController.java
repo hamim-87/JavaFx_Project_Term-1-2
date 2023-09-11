@@ -1,6 +1,7 @@
 package Controllers;
 
 import Client.Main;
+import Client.MyFoodListener;
 import Client.MyListListener;
 import Comunications.FileOperation;
 import Comunications.LoginDataTransferObject;
@@ -78,6 +79,8 @@ public class HomePageController {
     private MyListListener myListListener;
 
     private Main main;
+
+    private MyFoodListener foodListener;
 
 
     @FXML
@@ -199,6 +202,11 @@ public class HomePageController {
         }
     }
 
+    public  void setChosenFood(Food food)
+    {
+        System.out.println(food.getName());
+    }
+
 
     public void showFoods() throws IOException {
 //        FileOperation fo = new FileOperation();
@@ -207,7 +215,15 @@ public class HomePageController {
 
         //FoodList = LogInDTO.getFoodList();
 
-
+        if(FoodList.size()>0)
+        {
+            foodListener = new MyFoodListener() {
+                @Override
+                public void onclickFoodListener(Food food) {
+                    setChosenFood(food);
+                }
+            };
+        }
 
 
         int colom = 0,row = 0;
@@ -222,7 +238,7 @@ public class HomePageController {
 
             FoodCardController foodCardController = fxmlLoader.getController();
 
-            foodCardController.setDataForFood(FoodList.get(i));
+            foodCardController.setDataForFood(FoodList.get(i),foodListener);
             System.out.println(FoodList.get(i).getName());
 
             AnchorPane dummy1 = new AnchorPane();

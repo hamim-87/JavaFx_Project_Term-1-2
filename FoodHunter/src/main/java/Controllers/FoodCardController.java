@@ -1,11 +1,14 @@
 package Controllers;
 
+import Client.MyFoodListener;
+import Client.MyListListener;
 import Comunications.FileOperation;
 import DataBaseSystem.Food;
 import DataBaseSystem.Restaurant;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,9 +32,13 @@ public class FoodCardController {
 
     private Food food;
 
-    //test-------------------------------------------------------------------------
+
     public FileOperation Fo = new FileOperation();
     private List<Restaurant> RestaurantList = Fo.ReadFileForRestaurant();
+
+    private MyFoodListener myListListener;
+
+
 
     public FoodCardController() throws IOException {
     }
@@ -55,9 +62,17 @@ public class FoodCardController {
         return name;
     }
 
-    public void setDataForFood(Food food)
+    public void ClickedFood(MouseEvent mouseEvent)
+    {
+        myListListener.onclickFoodListener(food);
+    }
+
+
+
+    public void setDataForFood(Food food, MyFoodListener myListListener)
     {
         this.food = food;
+        this.myListListener = myListListener;
         foodName.setText(food.getName());
         foodCat.setText(food.getCategory());
         foodprice.setText(Double.toString(food.getPrice()));
