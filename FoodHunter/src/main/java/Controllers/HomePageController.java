@@ -1,7 +1,9 @@
 package Controllers;
 
+import Client.Main;
 import Client.MyListListener;
 import Comunications.FileOperation;
+import Comunications.LoginDataTransferObject;
 import DataBaseSystem.Food;
 import DataBaseSystem.Restaurant;
 import javafx.fxml.FXML;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class HomePageController implements Initializable {
+public class HomePageController {
     @FXML
     private Button ByNameRestaurant;
 
@@ -72,6 +74,8 @@ public class HomePageController implements Initializable {
 
     private MyListListener myListListener;
 
+    private Main main;
+
 
     @FXML
     private AnchorPane RestaurantCard;
@@ -81,33 +85,43 @@ public class HomePageController implements Initializable {
     //FOOD
     private List<Food> FoodList = new ArrayList<>();
 
-    public  void setRestaurantList(List<Restaurant> restaurantList)
+    private LoginDataTransferObject LogInDTO = new LoginDataTransferObject();
+
+    public void setLogInDTO(LoginDataTransferObject logInDTO)
     {
-        this.RestaurantList = restaurantList;
+        this.LogInDTO = logInDTO;
     }
 
-    public List<Restaurant> getRestaurantList()
+    public void setUsername(String Name)
     {
-        return RestaurantList;
+        Username.setText(Name);
     }
+
+
+
 
     public void setChosenRestaurant(Restaurant restaurant)
     {
-        System.out.println(restaurant.getName());
+        System.out.println("hehe");
     }
 
     public void ShowRestaurants()
     {
-        FileOperation Fo = new FileOperation();
-        try {
-            setRestaurantList(Fo.ReadFileForRestaurant());
-
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        FileOperation Fo = new FileOperation();
+//        try {
+//            setRestaurantList(Fo.ReadFileForRestaurant());
+//
+//
+//
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
         //main part
+        RestaurantList = LogInDTO.getRestaurantList();
+
+
+
+        System.out.println(RestaurantList);
 
         if(RestaurantList.size()>0)
         {
@@ -168,9 +182,13 @@ public class HomePageController implements Initializable {
 
 
     public void showFoods() throws IOException {
-        FileOperation fo = new FileOperation();
+//        FileOperation fo = new FileOperation();
+//
+//        FoodList = fo.ReadFileForMenu();
 
-        FoodList = fo.ReadFileForMenu();
+        FoodList = LogInDTO.getFoodList();
+
+
 
 
         int colom = 0,row = 0;
@@ -204,11 +222,14 @@ public class HomePageController implements Initializable {
         }
 
     }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+    public void init() {
         //Test
 
+
+
+        System.out.println("home page");
         ShowRestaurants();
         try {
             showFoods();
@@ -217,5 +238,9 @@ public class HomePageController implements Initializable {
         }
 
 
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
     }
 }

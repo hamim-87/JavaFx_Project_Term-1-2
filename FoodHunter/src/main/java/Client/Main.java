@@ -1,7 +1,8 @@
 package Client;
 
-import Comunications.ListDataTrasferObject;
+import Comunications.LoginDataTransferObject;
 import Comunications.NetworkConnection;
+import Controllers.HomePageController;
 import Controllers.LoginController;
 import DataBaseSystem.Food;
 import DataBaseSystem.Restaurant;
@@ -25,7 +26,7 @@ public class Main extends Application {
     private NetworkConnection network;
 
 
-    private List<Restaurant> ExtractedRestaurnt = new ArrayList<Restaurant>();
+    private List<Restaurant> ExtractedRestaurnt;
 
     public void SetExtractedRestaurant(List<Restaurant> ExtractedRestaurant)
     {
@@ -36,7 +37,7 @@ public class Main extends Application {
         return ExtractedRestaurnt;
     }
 
-    private List<Food> ExtractedFoodList = new ArrayList<Food>();
+    private List<Food> ExtractedFoodList;
 
     public void setExtractedFoodList(List<Food> ExtractedFoodList)
     {
@@ -65,12 +66,13 @@ public class Main extends Application {
 
         ConnectServer();
         System.out.println("Client Connected..");
-//
-//        ShowLoginPage();
-//        System.out.println("login page loaded.");
 
-        ShowHomePage();
-        System.out.println("Home page loaded..");
+        ShowLoginPage();
+        System.out.println("login page loaded.");
+//
+//        ShowHomePage();
+//        System.out.println("Home page loaded..");
+
 
 
 
@@ -86,6 +88,8 @@ public class Main extends Application {
         Socket socket = new Socket("127.0.0.1", 80);
 
         network = new NetworkConnection(socket);
+
+        new ReaderThreadOfClient(this,network);
 
 
     }
@@ -120,16 +124,45 @@ public class Main extends Application {
 
     }
 
-    public  void ShowHomePage() throws IOException {
+    public  void ShowHomePage(LoginDataTransferObject logInObj) throws IOException {
+
+
+
+        System.out.println("1");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FxmlFiles/HomePage.fxml"));
+        System.out.println("2");
+
+
         Parent root = loader.load();
-        Scene scene = new Scene(root);
 
-        new ReaderThreadOfClient(this,network);
 
-        stage.setScene(scene);
+
+        HomePageController controller = loader.getController();
+        System.out.println("going home");
+        System.out.println(logInObj.getRestaurantList().get(0).getName());
+
+        controller.setLogInDTO(logInObj);
+        controller.setMain(this);
+        controller.setUsername(logInObj.getUserName());
+
+        controller.init();
+
+
+
+
+
+
+
+
+        /////
+
+
+        //new ReaderThreadOfClient(this,network);
+
+
         stage.setTitle("Home in page...");
+        stage.setScene(new Scene(root));
         stage.show();
     }
 

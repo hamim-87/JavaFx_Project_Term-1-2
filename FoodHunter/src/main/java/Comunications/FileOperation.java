@@ -49,7 +49,7 @@ public class FileOperation implements Serializable{
 
 
                 }
-                System.out.println(NewRestaurant.getName());
+
 
                 RestaurantList.add(NewRestaurant);
             }

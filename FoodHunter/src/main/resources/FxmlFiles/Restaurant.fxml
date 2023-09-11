@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="RestaurantCard" onMousePressed="#clickedRestaurant" prefHeight="126.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RestaurantCardController">
+<AnchorPane fx:id="RestaurantCard" onMousePressed="#clickedRestaurant" prefHeight="126.0" prefWidth="425.0" style="-fx-background-color: #e0ffff; -fx-background-radius: 30,0,0,0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RestaurantCardController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="425.0">
          <children>

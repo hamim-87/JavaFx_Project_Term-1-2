@@ -63,7 +63,10 @@ public class NewThreadServer implements Runnable{
                             if(RealPass.equals(LoginDTO.getPassword()))
                             {
                                 LoginDTO.setStatus(true);
-                                nc.write(ExtractedRestaurantList);
+
+                                LoginDTO.setRestaurantList(ExtractedRestaurantList);
+                                LoginDTO.setFoodList(ExtractedFoodList);
+                                nc.write(LoginDTO);
                                 System.out.println(LoginDTO.getUserName()+ " Logged in...");
                             }
                             else{

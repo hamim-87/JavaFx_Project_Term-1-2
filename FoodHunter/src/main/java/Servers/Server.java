@@ -41,7 +41,7 @@ public class Server {
         ExtractedFoodList = FO.ReadFileForMenu();
         System.out.println("Food list is loaded..");
 
-        System.out.println(ExtractedRestaurantList.get(0).getFoodList());
+
 
 
 

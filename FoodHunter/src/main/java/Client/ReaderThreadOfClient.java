@@ -1,7 +1,9 @@
 package Client;
 
+
 import Comunications.LoginDataTransferObject;
 import Comunications.NetworkConnection;
+import Controllers.LoginController;
 import javafx.application.Platform;
 
 import java.io.IOException;
@@ -14,6 +16,8 @@ public class ReaderThreadOfClient implements Runnable{
     private final Thread t;
 
     private NetworkConnection network;
+
+    private LoginDataTransferObject LogInObj = new LoginDataTransferObject();
 
 
     ReaderThreadOfClient(Main main, NetworkConnection network)
@@ -34,17 +38,24 @@ public class ReaderThreadOfClient implements Runnable{
 
             while (true)
             {
+
                 Object o = network.read();
+
+
                 if(o instanceof LoginDataTransferObject)
                 {
+
                     LoginDataTransferObject LoginDTO = new LoginDataTransferObject();
                     LoginDTO = (LoginDataTransferObject) o;
                     if(LoginDTO.getStatus())
                     {
                         System.out.println("Can log in..");
+
+
+                        LoginDataTransferObject finalLoginDTO = LoginDTO;
                         Platform.runLater(() -> {
                             try {
-                                main.ShowHomePage();
+                                main.ShowHomePage(finalLoginDTO);
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
@@ -53,6 +64,9 @@ public class ReaderThreadOfClient implements Runnable{
                     else{
                         Platform.runLater(() -> main.ShowAlert("Incorrect","Incorrect","Username or Password wrong"));
                     }
+                }
+                else{
+                    System.out.println("hehe");
                 }
             }
 

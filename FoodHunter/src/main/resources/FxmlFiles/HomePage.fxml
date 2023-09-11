@@ -45,91 +45,96 @@
                         <Font name="Bodoni MT" size="32.0" />
                      </font>
                   </Label>
+                  <AnchorPane layoutX="-344.0" layoutY="146.0" prefHeight="7.0" prefWidth="1100.0" />
                </children></AnchorPane>
          </children>
       </HBox>
       <HBox layoutX="14.0" layoutY="150.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
          <children>
-            <AnchorPane prefHeight="100.0" prefWidth="1129.0">
+            <AnchorPane>
                <children>
-                  <Button fx:id="ByNameRestaurant" layoutX="14.0" layoutY="41.0" mnemonicParsing="false" text="Name">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="ScoreByRestaurant" layoutX="89.0" layoutY="41.0" mnemonicParsing="false" text="Score" textAlignment="CENTER">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="CategoryByRestaurant" layoutX="158.0" layoutY="41.0" mnemonicParsing="false" text="Category">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="ZipCodeByRestaurant" layoutX="248.0" layoutY="41.0" mnemonicParsing="false" text="Zip Code">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="CatWiseResByRestaurant" layoutX="338.0" layoutY="41.0" mnemonicParsing="false" text="Category Wise Restaurant">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Separator layoutX="518.0" layoutY="21.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="15.0" />
-                  <Label layoutX="158.0" layoutY="-6.0" prefHeight="21.0" prefWidth="269.0" text="Search Restaurant">
-                     <font>
-                        <Font name="Harlow Solid Italic" size="23.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="NameByFood" layoutX="530.0" layoutY="41.0" mnemonicParsing="false" text="Name">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="NameInGivenResByFood" layoutX="603.0" layoutY="41.0" mnemonicParsing="false" text="Name In A GIven Restaurant">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="CatByFood" layoutX="806.0" layoutY="41.0" mnemonicParsing="false" text="Category">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="CatInGivenResByFood" layoutX="902.0" layoutY="41.0" mnemonicParsing="false" text=" Category In A Given Restaurant">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="PriceRangeGIvenResByFood" layoutX="542.0" layoutY="73.0" mnemonicParsing="false" text="Price Range In A Given Restaurant">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="PriceRangeByFood" layoutX="797.0" layoutY="73.0" mnemonicParsing="false" text="Price Range">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="TotalFoodAndResByFood" layoutX="909.0" layoutY="73.0" mnemonicParsing="false" text="Total Food And Restaurant">
-                     <font>
-                        <Font name="Franklin Gothic Heavy" size="12.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="705.0" layoutY="-6.0" prefHeight="21.0" prefWidth="269.0" text="Search Food Items">
-                     <font>
-                        <Font name="Harlow Solid Italic" size="23.0" />
-                     </font>
-                  </Label>
-                  <Separator layoutX="519.0" layoutY="21.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
+                  <AnchorPane layoutY="6.0" prefHeight="100.0" prefWidth="572.0">
+                     <children>
+                        <Button fx:id="ByNameRestaurant" layoutX="14.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10,10,10,10;" text="Name">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="ScoreByRestaurant" layoutX="89.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10,10,10,10;" text="Score" textAlignment="CENTER">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="CategoryByRestaurant" layoutX="158.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10,10,10,10;" text="Category">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="ZipCodeByRestaurant" layoutX="248.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Zip Code">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="CatWiseResByRestaurant" layoutX="338.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Category Wise Restaurant">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Separator layoutX="518.0" layoutY="21.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="15.0" />
+                        <Label layoutX="158.0" layoutY="-6.0" prefHeight="21.0" prefWidth="269.0" text="Search Restaurant">
+                           <font>
+                              <Font name="Harlow Solid Italic" size="23.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="NameByFood" layoutX="530.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Name">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="NameInGivenResByFood" layoutX="603.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Name In A GIven Restaurant">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="CatByFood" layoutX="806.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Category">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="CatInGivenResByFood" layoutX="902.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text=" Category In A Given Restaurant">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="PriceRangeGIvenResByFood" layoutX="542.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Price Range In A Given Restaurant">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="PriceRangeByFood" layoutX="797.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Price Range">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="TotalFoodAndResByFood" layoutX="909.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Total Food And Restaurant">
+                           <font>
+                              <Font name="Franklin Gothic Heavy" size="12.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="705.0" layoutY="-6.0" prefHeight="21.0" prefWidth="269.0" text="Search Food Items">
+                           <font>
+                              <Font name="Harlow Solid Italic" size="23.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="519.0" layoutY="21.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>
       </HBox>
-      <AnchorPane layoutX="-1.0" layoutY="262.0" prefHeight="22.0" prefWidth="1100.0" />
-      <ScrollPane layoutX="442.0" layoutY="284.0" prefHeight="416.0" prefWidth="380.0">
+      <AnchorPane layoutX="-1.0" layoutY="253.0" prefHeight="7.0" prefWidth="1100.0" />
+      <ScrollPane layoutX="495.0" layoutY="284.0" prefHeight="416.0" prefWidth="423.0">
          <content>
             <GridPane fx:id="Foodgrid" prefHeight="13.0" prefWidth="54.0">
               <rowConstraints>
@@ -138,8 +143,8 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <AnchorPane layoutX="855.0" layoutY="284.0" prefHeight="416.0" prefWidth="246.0" />
-      <ScrollPane fx:id="ScrollRestaurant" layoutX="-1.0" layoutY="284.0" prefHeight="416.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="679.0">
+      <AnchorPane layoutX="962.0" layoutY="284.0" prefHeight="416.0" prefWidth="139.0" />
+      <ScrollPane fx:id="ScrollRestaurant" layoutX="-1.0" layoutY="284.0" prefHeight="416.0" prefWidth="463.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="638.0">
          <content>
             <AnchorPane prefHeight="95.0" prefWidth="420.0">
                <children>
