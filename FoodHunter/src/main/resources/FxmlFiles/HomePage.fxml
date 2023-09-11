@@ -97,37 +97,37 @@
                               <Font name="Harlow Solid Italic" size="23.0" />
                            </font>
                         </Label>
-                        <Button fx:id="NameByFood" layoutX="530.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Name">
+                        <Button fx:id="NameByFood" layoutX="530.0" layoutY="41.0" mnemonicParsing="false" onAction="#FoodName" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Name">
                            <font>
                               <Font name="Franklin Gothic Heavy" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="NameInGivenResByFood" layoutX="603.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Name In A GIven Restaurant">
+                        <Button fx:id="NameInGivenResByFood" layoutX="603.0" layoutY="41.0" mnemonicParsing="false" onAction="#NameGivenRes" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Name In A GIven Restaurant">
                            <font>
                               <Font name="Franklin Gothic Heavy" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="CatByFood" layoutX="806.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Category">
+                        <Button fx:id="CatByFood" layoutX="806.0" layoutY="41.0" mnemonicParsing="false" onAction="#foodCat" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Category">
                            <font>
                               <Font name="Franklin Gothic Heavy" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="CatInGivenResByFood" layoutX="902.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text=" Category In A Given Restaurant">
+                        <Button fx:id="CatInGivenResByFood" layoutX="902.0" layoutY="41.0" mnemonicParsing="false" onAction="#CatInGivenRes" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text=" Category In A Given Restaurant">
                            <font>
                               <Font name="Franklin Gothic Heavy" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="PriceRangeGIvenResByFood" layoutX="542.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Price Range In A Given Restaurant">
+                        <Button fx:id="PriceRangeGIvenResByFood" layoutX="542.0" layoutY="73.0" mnemonicParsing="false" onAction="#PriceRangeInGivenRes" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Price Range In A Given Restaurant">
                            <font>
                               <Font name="Franklin Gothic Heavy" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="PriceRangeByFood" layoutX="797.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Price Range">
+                        <Button fx:id="PriceRangeByFood" layoutX="797.0" layoutY="73.0" mnemonicParsing="false" onAction="#PriceRangeFood" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Price Range">
                            <font>
                               <Font name="Franklin Gothic Heavy" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="TotalFoodAndResByFood" layoutX="909.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Total Food And Restaurant">
+                        <Button fx:id="TotalFoodAndResByFood" layoutX="909.0" layoutY="73.0" mnemonicParsing="false" onAction="#TotalFoodAndRest" style="-fx-background-color: #5f9ea0; -fx-background-radius: 10;" text="Total Food And Restaurant">
                            <font>
                               <Font name="Franklin Gothic Heavy" size="12.0" />
                            </font>
@@ -147,17 +147,21 @@
       <AnchorPane layoutX="-1.0" layoutY="253.0" prefHeight="7.0" prefWidth="1100.0" />
       <ScrollPane layoutX="478.0" layoutY="284.0" prefHeight="416.0" prefWidth="620.0">
          <content>
-            <GridPane fx:id="Foodgrid" prefHeight="13.0" prefWidth="54.0">
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
+            <AnchorPane prefHeight="414.0" prefWidth="623.0" style="-fx-background-color: #fffff0; -fx-border-radius: 4;">
+               <children>
+                  <GridPane fx:id="Foodgrid" prefHeight="13.0" prefWidth="54.0">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
          </content>
       </ScrollPane>
       <AnchorPane layoutX="962.0" layoutY="284.0" prefHeight="416.0" prefWidth="139.0" />
-      <ScrollPane fx:id="ScrollRestaurant" layoutX="-1.0" layoutY="284.0" prefHeight="416.0" prefWidth="463.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="638.0">
+      <ScrollPane fx:id="ScrollRestaurant" layoutX="-1.0" layoutY="284.0" prefHeight="416.0" prefWidth="463.0" style="-fx-border-radius: 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="638.0">
          <content>
-            <AnchorPane prefHeight="95.0" prefWidth="420.0">
+            <AnchorPane prefHeight="415.0" prefWidth="460.0" style="-fx-background-color: #fffff0;">
                <children>
                   <GridPane fx:id="gridRestaurant" layoutY="22.0" prefHeight="0.0" prefWidth="57.0">
                     <rowConstraints>

@@ -11,10 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -214,6 +211,7 @@ public class HomePageController {
 
 
         int colom = 0,row = 0;
+        System.out.println(FoodList);
         for (int i = 0;i<FoodList.size();i++)
         {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -225,6 +223,7 @@ public class HomePageController {
             FoodCardController foodCardController = fxmlLoader.getController();
 
             foodCardController.setDataForFood(FoodList.get(i));
+            System.out.println(FoodList.get(i).getName());
 
             AnchorPane dummy1 = new AnchorPane();
             dummy1.setMaxWidth(260);
@@ -320,27 +319,34 @@ public class HomePageController {
     public void RestaurantByScore(ActionEvent actionEvent) throws IOException {
         String line = Search.getText();
         String[] dig = line.split(",",-1);
-        double num1 = Double.parseDouble(dig[0]);
-        double num2 = Double.parseDouble(dig[1]);
+        if(dig[0]=="" || dig[1] == "") {
+            main.ShowAlert("inconvenience", "Incorrect way to Search", "Try to Search (Initial Range,Final Range");
 
-        List<Restaurant> list = new ArrayList<Restaurant>();
+        }else {
 
-        for(Restaurant r : LogInDTO.getRestaurantList())
-        {
-            double score = r.getScore();
-            if(num1<= score && num2>= score)
+            double num1 = Double.parseDouble(dig[0]);
+            double num2 = Double.parseDouble(dig[1]);
+
+            List<Restaurant> list = new ArrayList<Restaurant>();
+
+            for(Restaurant r : LogInDTO.getRestaurantList())
             {
-                list.add(r);
+                double score = r.getScore();
+                if(num1<= score && num2>= score)
+                {
+                    list.add(r);
+                }
             }
+
+            updateRestaurantList(list);
+            gridRestaurant.getChildren().clear();
+
+            ShowRestaurants();
+            updateFoodList(list.get(0).getFoodList());
+            showFoods();
+            Search.setText("");
         }
 
-        updateRestaurantList(list);
-        gridRestaurant.getChildren().clear();
-
-        ShowRestaurants();
-        updateFoodList(list.get(0).getFoodList());
-        showFoods();
-        Search.setText("");
     }
 
     public void RestaurantByCategory(ActionEvent actionEvent) throws IOException {
@@ -392,5 +398,231 @@ public class HomePageController {
 
     public void CatWiseRestaurant(ActionEvent actionEvent) {
 
+    }
+
+    public void FoodName(ActionEvent actionEvent) throws IOException {
+        String name = Search.getText();
+
+        List<Food> FList = new ArrayList<Food>();
+        List<Restaurant> Rlist = new ArrayList<>();
+
+        for(Restaurant r : LogInDTO.getRestaurantList())
+        {
+           for(Food f : r.getFoodList())
+           {
+               if(f.getName().toLowerCase().contains(name.toLowerCase()))
+               {
+                   //
+                   System.out.println(f.getName());
+                   FList.add(f);
+                   if(!Rlist.contains(r))
+                        Rlist.add(r);
+               }
+           }
+        }
+        updateRestaurantList(Rlist);
+        gridRestaurant.getChildren().clear();
+
+        ShowRestaurants();
+        updateFoodList(FList);
+        Foodgrid.getChildren().clear();
+        showFoods();
+        Search.setText("");
+
+
+    }
+
+    public void NameGivenRes(ActionEvent actionEvent) throws IOException {
+        String line = Search.getText();
+        String[] word = line.split(",",-1);
+        if(word[1] == "" || word[0] =="")
+        {
+            main.ShowAlert("inconvenience","Incorrect way to Search","Try to Search (Restaurant Name,Food name)");
+        }
+        else{
+            List<Food> flist = new ArrayList<Food>();
+            List<Restaurant> rlist = new ArrayList<>();
+            for(Restaurant r: LogInDTO.getRestaurantList())
+            {
+                if(r.getName().toLowerCase().contains(word[0].toLowerCase()))
+                {
+                    rlist.add(r);
+                    for(Food f : LogInDTO.getFoodList())
+                    {
+                        if(f.getName().toLowerCase().contains(word[1].toLowerCase()))
+                        {
+                            flist.add(f);
+                        }
+                    }
+                }
+            }
+            updateRestaurantList(rlist);
+            gridRestaurant.getChildren().clear();
+
+            ShowRestaurants();
+            updateFoodList(flist);
+            Foodgrid.getChildren().clear();
+            showFoods();
+            Search.setText("");
+
+        }
+    }
+
+    public void foodCat(ActionEvent actionEvent) throws IOException {
+        String category = Search.getText();
+
+        if(category == "")
+        {
+            return;
+        }else
+        {
+            List<Food> flist = new ArrayList<Food>();
+            List<Restaurant> rlist = new ArrayList<>();
+            for(Restaurant r : LogInDTO.getRestaurantList())
+            {
+                for(int i = 0;i<r.getFoodList().size();i++)
+                {
+                    if(r.getFoodList().get(i).getCategory().toLowerCase().contains(category.toLowerCase()))
+                    {
+                        flist.add(r.getFoodList().get(i));
+                        if(!rlist.contains(r))
+                            rlist.add(r);
+                    }
+                }
+            }
+            updateRestaurantList(rlist);
+            gridRestaurant.getChildren().clear();
+
+            ShowRestaurants();
+            updateFoodList(flist);
+            Foodgrid.getChildren().clear();
+            showFoods();
+            Search.setText("");
+
+
+        }
+    }
+
+    public void CatInGivenRes(ActionEvent actionEvent) throws IOException {
+        String line = Search.getText();
+        String[] word = line.split(",",-1);
+        if(word[1] == "" || word[0] =="")
+        {
+            main.ShowAlert("inconvenience","Incorrect way to Search","Try to Search (Restaurant Name,Catagory)");
+
+        }else{
+            List<Food> flist = new ArrayList<Food>();
+            List<Restaurant> rlist = new ArrayList<>();
+            for(Restaurant r : LogInDTO.getRestaurantList())
+            {
+               if(r.getName().toLowerCase().contains(word[0].toLowerCase()))
+               {
+                   for(int i = 0;i<r.getFoodList().size();i++)
+                   {
+                       if(r.getFoodList().get(i).getCategory().toLowerCase().contains(word[1].toLowerCase()))
+                       {
+                           flist.add(r.getFoodList().get(i));
+                           if(!rlist.contains(r))
+                               rlist.add(r);
+                       }
+                   }
+               }
+            }
+            updateRestaurantList(rlist);
+            gridRestaurant.getChildren().clear();
+
+            ShowRestaurants();
+            updateFoodList(flist);
+            Foodgrid.getChildren().clear();
+            showFoods();
+            Search.setText("");
+        }
+    }
+
+    public void PriceRangeInGivenRes(ActionEvent actionEvent) throws IOException {
+        String line = Search.getText();
+        String[] dig = line.split(",",-1);
+        if(dig[1]=="" || dig[2] == "") {
+            main.ShowAlert("inconvenience", "Incorrect way to Search", "Try to Search (Restaurant,Initial Range,Final Range");
+
+        }else {
+            double min = Double.parseDouble(dig[1]);
+            double max = Double.parseDouble(dig[2]);
+
+            List<Food> list = new ArrayList<Food>();
+            List<Food> flist = new ArrayList<Food>();
+            List<Restaurant> rlist = new ArrayList<>();
+            for(Restaurant r : LogInDTO.getRestaurantList())
+            {
+
+                    if(r.getName().toLowerCase().contains(dig[0].toLowerCase()))
+                    {
+                        for(int i = 0;i<r.getFoodList().size();i++)
+                        {
+                            if(r.getFoodList().get(i).getPrice()>=min && r.getFoodList().get(i).getPrice() <= max)
+                            {
+                                flist.add(r.getFoodList().get(i));
+                                if(!rlist.contains(r))
+                                    rlist.add(r);
+                            }
+                        }
+                    }
+
+            }
+            updateRestaurantList(rlist);
+            gridRestaurant.getChildren().clear();
+
+            ShowRestaurants();
+            updateFoodList(flist);
+            Foodgrid.getChildren().clear();
+            showFoods();
+            Search.setText("");
+        }
+
+
+
+    }
+
+    public void PriceRangeFood(ActionEvent actionEvent) throws IOException {
+        String line = Search.getText();
+        String[] dig = line.split(",",-1);
+        if(dig[1]=="" || dig[0] == "") {
+            main.ShowAlert("inconvenience", "Incorrect way to Search", "Try to Search (Initial Range,Final Range");
+
+        }else {
+            double min = Double.parseDouble(dig[0]);
+            double max = Double.parseDouble(dig[1]);
+
+            List<Food> list = new ArrayList<Food>();
+            List<Food> flist = new ArrayList<Food>();
+            List<Restaurant> rlist = new ArrayList<>();
+            for(Restaurant r : LogInDTO.getRestaurantList())
+            {
+
+
+                    for(int i = 0;i<r.getFoodList().size();i++)
+                    {
+                        if(r.getFoodList().get(i).getPrice()>=min && r.getFoodList().get(i).getPrice() <= max)
+                        {
+                            flist.add(r.getFoodList().get(i));
+                            if(!rlist.contains(r))
+                                rlist.add(r);
+                        }
+                    }
+
+
+            }
+            updateRestaurantList(rlist);
+            gridRestaurant.getChildren().clear();
+
+            ShowRestaurants();
+            updateFoodList(flist);
+            Foodgrid.getChildren().clear();
+            showFoods();
+            Search.setText("");
+        }
+    }
+
+    public void TotalFoodAndRest(ActionEvent actionEvent) {
     }
 }
