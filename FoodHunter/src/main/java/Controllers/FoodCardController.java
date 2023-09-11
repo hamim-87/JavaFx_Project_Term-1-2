@@ -63,5 +63,6 @@ public class FoodCardController {
         foodprice.setText(Double.toString(food.getPrice()));
         restaurant.setText(GetRestaurantNameFromId(food.getRestaurantId()));
 
+
     }
 }

@@ -146,6 +146,9 @@ public class Main extends Application {
         controller.setMain(this);
         controller.setUsername(logInObj.getUserName());
 
+        controller.updateRestaurantList(logInObj.getRestaurantList());
+        controller.updateFoodList(logInObj.getRestaurantList().get(0).getFoodList());
+
         controller.init();
 
 

@@ -10,6 +10,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+
 public class RestaurantCardController {
     @FXML
     private ImageView CardImage;
@@ -50,8 +52,7 @@ public class RestaurantCardController {
         String imgsrc ="/Image/"+name+".png";
         return imgsrc;
     }
-    public void clickedRestaurant(MouseEvent mouseEvent)
-    {
+    public void clickedRestaurant(MouseEvent mouseEvent) throws IOException {
         myListListener.onclickRestaurantListener(Restaurant);
     }
 

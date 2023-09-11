@@ -100,9 +100,22 @@ public class HomePageController {
 
 
 
-    public void setChosenRestaurant(Restaurant restaurant)
+    public void setChosenRestaurant(Restaurant restaurant) throws IOException {
+        //System.out.println("hehe");
+        Foodgrid.getChildren().clear();
+        FoodList.clear();
+        updateFoodList(restaurant.getFoodList());
+        showFoods();
+    }
+
+    public void updateRestaurantList(List<Restaurant> restaurantList)
     {
-        System.out.println("hehe");
+        this.RestaurantList = restaurantList;
+    }
+
+    public void updateFoodList(List<Food> FoodList)
+    {
+        this.FoodList = FoodList;
     }
 
     public void ShowRestaurants()
@@ -117,7 +130,7 @@ public class HomePageController {
 //            throw new RuntimeException(e);
 //        }
         //main part
-        RestaurantList = LogInDTO.getRestaurantList();
+        //RestaurantList = LogInDTO.getRestaurantList();
 
 
 
@@ -127,7 +140,7 @@ public class HomePageController {
         {
             myListListener = new MyListListener() {
                 @Override
-                public void onclickRestaurantListener(Restaurant restaurant) {
+                public void onclickRestaurantListener(Restaurant restaurant) throws IOException {
                     setChosenRestaurant(restaurant);
                 }
             };
@@ -150,7 +163,7 @@ public class HomePageController {
 
                 AnchorPane dummy = new AnchorPane();
                 dummy.setMaxWidth(400);
-                dummy.setMaxHeight(40);
+                dummy.setMaxHeight(10);
 
 
                 if(i == 0)
@@ -186,7 +199,7 @@ public class HomePageController {
 //
 //        FoodList = fo.ReadFileForMenu();
 
-        FoodList = LogInDTO.getFoodList();
+        //FoodList = LogInDTO.getFoodList();
 
 
 
@@ -204,7 +217,27 @@ public class HomePageController {
 
             foodCardController.setDataForFood(FoodList.get(i));
 
-            Foodgrid.add(anchorPane,colom,row++);
+            AnchorPane dummy1 = new AnchorPane();
+            dummy1.setMaxWidth(260);
+            dummy1.setMaxHeight(10);
+
+            AnchorPane dummy2 = new AnchorPane();
+            dummy2.setMaxWidth(260);
+            dummy2.setMaxHeight(10);
+
+
+
+            if(i == 0)
+            {
+                Foodgrid.add(dummy1,colom++,row);
+                Foodgrid.add(dummy2,colom++,row);
+            }
+            if(colom%2 == 0)
+            {
+                colom = 0;
+                row++;
+            }
+            Foodgrid.add(anchorPane,colom++,row);
 
             //width
             Foodgrid.setMinWidth(Region.USE_COMPUTED_SIZE);
