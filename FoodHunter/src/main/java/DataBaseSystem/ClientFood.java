@@ -1,6 +1,6 @@
 package DataBaseSystem;
 
-public class ClientFood extends Food{
+public class ClientFood{
 
     private  int FoodCount = 1;
 
@@ -26,7 +26,17 @@ public class ClientFood extends Food{
             FoodCount--;
         }
     }
-    public ClientFood(int RestaurantId, String Category, String Name, double Price) {
-        super(RestaurantId, Category, Name, Price);
+    public int getFoodCount()
+    {
+        return FoodCount;
     }
+
+    private Food food;
+
+    public void setFood(Food food)
+    {
+        this.food = food;
+    }
+
+
 }

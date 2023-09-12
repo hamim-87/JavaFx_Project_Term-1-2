@@ -4,14 +4,15 @@ import Comunications.LoginDataTransferObject;
 import Comunications.NetworkConnection;
 import Controllers.HomePageController;
 import Controllers.LoginController;
+import Controllers.OrderController;
+import DataBaseSystem.ClientFood;
 import DataBaseSystem.Food;
 import DataBaseSystem.Restaurant;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -121,6 +122,27 @@ public class Main extends Application {
         alert.setContentText(contendtext);
         alert.setHeaderText(headText);
         alert.showAndWait();
+
+    }
+
+    public void ShowOrders(List<ClientFood> orderedfood) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/FxmlFiles/OrderListView.fxml"));
+        DialogPane Orders = loader.load();
+
+        OrderController orderController = loader.getController();
+
+        orderController.setOrderList(orderedfood);
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setDialogPane(Orders);
+        dialog.setTitle("Orders");
+
+        dialog.show();
+
+
+
+
 
     }
 

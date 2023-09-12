@@ -5,6 +5,7 @@ import Client.MyFoodListener;
 import Client.MyListListener;
 import Comunications.FileOperation;
 import Comunications.LoginDataTransferObject;
+import DataBaseSystem.ClientFood;
 import DataBaseSystem.Food;
 import DataBaseSystem.Restaurant;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -202,9 +204,29 @@ public class HomePageController {
         }
     }
 
+    private List<ClientFood> OrderedFood = new ArrayList<>();
+    public String RestaurantName(int id)
+    {
+        for(Restaurant r : LogInDTO.getRestaurantList())
+        {
+            if(r.getId() == id)
+            {
+                return r.getName();
+            }
+        }
+        return "notFound";
+    }
     public  void setChosenFood(Food food)
     {
         System.out.println(food.getName());
+
+        //
+        ClientFood Chosenfood = new ClientFood();
+        Chosenfood.setFood(food);
+        Chosenfood.setRestaurantName(RestaurantName(food.getRestaurantId()));
+        OrderedFood.add(Chosenfood);
+
+
     }
 
 
@@ -640,5 +662,13 @@ public class HomePageController {
     }
 
     public void TotalFoodAndRest(ActionEvent actionEvent) {
+    }
+
+    public void ShowOrders(MouseEvent mouseEvent) throws IOException {
+        System.out.println("orderList");
+
+        main.ShowOrders(OrderedFood );
+
+
     }
 }
