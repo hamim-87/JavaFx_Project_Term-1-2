@@ -6,8 +6,9 @@ import javafx.scene.control.Label;
 
 public class showRestaurantTheOrderController {
 
+
     @FXML
-    private Label ClientName;
+    private Label name;
 
     @FXML
     private Label foodCat;
@@ -21,11 +22,13 @@ public class showRestaurantTheOrderController {
     @FXML
     private Label foodprice;
 
+
+
     public void setDataForOrders(ClientFood clientFood)
     {
-        if (ClientName != null) {
-            ClientName.setText(clientFood.getUsername());
-        }
+        //if(name != null) {
+            name.setText(clientFood.getUsername());
+        //}
 
         foodCat.setText(clientFood.getFood().getCategory());
         foodName.setText(clientFood.getFood().getName());
