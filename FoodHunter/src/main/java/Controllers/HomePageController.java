@@ -224,7 +224,7 @@ public class HomePageController {
         ClientFood Chosenfood = new ClientFood();
         Chosenfood.setFood(food);
         Chosenfood.setRestaurantName(RestaurantName(food.getRestaurantId()));
-        Chosenfood.setUsername(Username.getText());
+        Chosenfood.setUsername(LogInDTO.getUserName());
         OrderedFood.add(Chosenfood);
 
 

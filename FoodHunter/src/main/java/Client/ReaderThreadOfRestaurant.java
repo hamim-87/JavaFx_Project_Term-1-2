@@ -65,7 +65,15 @@ public class ReaderThreadOfRestaurant implements Runnable{
                 else if(o instanceof OrderList){
                    OrderList orderList = new OrderList();
                    orderList = (OrderList) o;
-                    System.out.println("Restaurant found"+ orderList.getListOfFood());
+                    System.out.println("Restaurant found"+ orderList.getListOfFood().get(0).getUsername());
+                    OrderList finalOrderList = orderList;
+                    Platform.runLater(() -> {
+                        try {
+                            main.OrderUpdated(finalOrderList.getListOfFood());
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
 
 
                 }

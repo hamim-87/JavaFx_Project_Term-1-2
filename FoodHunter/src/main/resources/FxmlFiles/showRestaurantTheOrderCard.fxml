@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="378.0" style="-fx-background-color: #add8e6; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-border-color: #d2691e;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.showRestaurantTheOrderController">
+    <children>
+        <VBox layoutY="-4.0" prefHeight="127.0" prefWidth="378.0">
+            <children>
+                <AnchorPane prefHeight="125.0" prefWidth="378.0" style="-fx-border-radius: 20; -fx-background-radius: 20;">
+                    <children>
+                        <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/foodCardlogo.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="foodName" layoutX="41.0" layoutY="18.0" text="Food">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="14.0" fitWidth="11.0" layoutX="19.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/foodCat.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="foodCat" layoutX="41.0" layoutY="54.0" prefHeight="17.0" prefWidth="258.0" text="cat" />
+                        <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="14.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/Foodprice.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="foodprice" layoutX="41.0" layoutY="87.0" text="100.12">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane layoutX="214.0" layoutY="97.0" prefHeight="27.0" prefWidth="25.0" />
+                  <Label layoutX="236.0" layoutY="59.0" text="Client Name:" />
+                            <Label fx:id="foodcounter" alignment="CENTER" layoutX="197.0" layoutY="85.0" prefHeight="27.0" prefWidth="34.0" style="-fx-background-color: #b0e0e6;" text="1" textAlignment="RIGHT">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                  <Label layoutX="318.0" layoutY="59.0" text="user" />
+                  <Label layoutX="154.0" layoutY="88.0" text="Count">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="270.0" layoutY="85.0" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #ff6347; -fx-background-radius: 10;">
+                     <children>
+                        <Label layoutX="15.0" layoutY="5.0" text="COMPLETED" />
+                     </children>
+                  </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

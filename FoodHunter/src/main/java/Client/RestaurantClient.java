@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RestaurantClient extends Application {
@@ -32,6 +33,29 @@ public class RestaurantClient extends Application {
     }
 
     private RestaurantHomePageController homePageController;
+
+    private List<ClientFood> ClientOrder = new ArrayList<>();
+
+    public void setClientOrder(List<ClientFood> clientOrder) {
+        ClientOrder = clientOrder;
+    }
+
+    public List<ClientFood> getClientOrder() {
+        return ClientOrder;
+    }
+
+    public void OrderUpdated(List<ClientFood> list) throws IOException {
+
+        System.out.println("Restaurant Main"+ list);
+
+        setClientOrder(list);
+
+        ShowRestaurantHomePage(restaurantLoginInfo);
+
+
+
+
+    }
 
 
     public static void main(String[] args) {
@@ -96,6 +120,8 @@ public class RestaurantClient extends Application {
         homePageController = restaurantHomePageController;
 
         restaurantHomePageController.setRestaurant(restaurantLoginInfo.getRestaurant());
+        restaurantHomePageController.setClientFoodList(ClientOrder);
+        System.out.println("SHowreshomepage.."+ClientOrder);
         restaurantHomePageController.init();
 
 

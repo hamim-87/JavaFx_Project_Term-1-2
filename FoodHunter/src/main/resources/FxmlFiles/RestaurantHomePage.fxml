@@ -128,7 +128,7 @@
             <content>
                 <AnchorPane prefHeight="415.0" prefWidth="460.0" style="-fx-background-color: #fffff0;">
                     <children>
-                        <GridPane fx:id="gridRestaurant" layoutY="22.0" prefHeight="0.0" prefWidth="57.0">
+                        <GridPane fx:id="orderGrid" layoutX="7.0" layoutY="9.0" prefHeight="0.0" prefWidth="57.0">
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>

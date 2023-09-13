@@ -3,6 +3,7 @@ package Client;
 
 import Comunications.LoginDataTransferObject;
 import Comunications.NetworkConnection;
+import Comunications.OrderList;
 import Controllers.LoginController;
 import javafx.application.Platform;
 
@@ -65,7 +66,7 @@ public class ReaderThreadOfClient implements Runnable{
                         Platform.runLater(() -> main.ShowAlert("Incorrect","Incorrect","Username or Password wrong"));
                     }
                 }
-                else{
+                else if( o instanceof OrderList){
                     System.out.println("hehe");
                 }
             }
