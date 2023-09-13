@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Main extends Application {
 
@@ -57,6 +58,16 @@ public class Main extends Application {
     public NetworkConnection getNetwork()
     {
         return network;
+    }
+
+    private LoginDataTransferObject LoginDTO;
+
+    public LoginDataTransferObject getLoginDTO() {
+        return LoginDTO;
+    }
+
+    public void setLoginDTO(LoginDataTransferObject loginDTO) {
+        LoginDTO = loginDTO;
     }
 
     @Override
@@ -109,7 +120,7 @@ public class Main extends Application {
         //controller.init();
 
         stage.setScene(scene);
-        stage.setTitle("Log in page...");
+        stage.setTitle("LogIn page");
         stage.show();
 
 
@@ -126,19 +137,29 @@ public class Main extends Application {
     }
 
     public void ShowOrders(List<ClientFood> orderedfood) throws IOException {
+
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FxmlFiles/OrderListView.fxml"));
-        DialogPane Orders = loader.load();
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
 
         OrderController orderController = loader.getController();
 
         orderController.setOrderList(orderedfood);
 
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setDialogPane(Orders);
-        dialog.setTitle("Orders");
+        orderController.setLoginDTO(LoginDTO);
+        orderController.showOrderList();
 
-        dialog.show();
+
+        stage.setScene(scene);
+        stage.setTitle("Order Page");
+        stage.show();
+
+
+
+
 
 
 
@@ -148,7 +169,7 @@ public class Main extends Application {
 
     public  void ShowHomePage(LoginDataTransferObject logInObj) throws IOException {
 
-
+        setLoginDTO(logInObj);
 
         System.out.println("1");
         FXMLLoader loader = new FXMLLoader();

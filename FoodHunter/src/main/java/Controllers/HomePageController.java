@@ -261,7 +261,7 @@ public class HomePageController {
             FoodCardController foodCardController = fxmlLoader.getController();
 
             foodCardController.setDataForFood(FoodList.get(i),foodListener);
-            System.out.println(FoodList.get(i).getName());
+            //System.out.println(FoodList.get(i).getName());
 
             AnchorPane dummy1 = new AnchorPane();
             dummy1.setMaxWidth(260);
@@ -666,6 +666,8 @@ public class HomePageController {
 
     public void ShowOrders(MouseEvent mouseEvent) throws IOException {
         System.out.println("orderList");
+
+        //System.out.println(OrderedFood);
 
         main.ShowOrders(OrderedFood );
 

@@ -38,5 +38,10 @@ public class ClientFood{
         this.food = food;
     }
 
+    public Food getFood()
+    {
+        return food;
+    }
+
 
 }

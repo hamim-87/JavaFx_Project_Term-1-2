@@ -9,12 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="378.0" style="-fx-background-color: #add8e6; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-border-color: #d2691e;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ClientFoodController">
     <children>
         <VBox layoutY="-4.0" prefHeight="127.0" prefWidth="378.0">
             <children>
-                <AnchorPane prefHeight="125.0" prefWidth="378.0">
+                <AnchorPane prefHeight="125.0" prefWidth="378.0" style="-fx-border-radius: 20; -fx-background-radius: 20;">
                     <children>
                         <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -42,32 +41,40 @@
                                 <Font size="10.0" />
                             </font>
                         </Label>
-                        <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="317.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="289.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Image/Foodprice.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="foodprice" layoutX="337.0" layoutY="21.0" text="100.12">
+                        <Label fx:id="foodprice" layoutX="315.0" layoutY="61.0" text="100.12">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <HBox layoutX="248.0" layoutY="43.0" prefHeight="40.0" prefWidth="129.0">
+                        <HBox layoutX="236.0" layoutY="84.0" prefHeight="34.0" prefWidth="125.0">
                             <children>
-                                <AnchorPane prefHeight="28.0" prefWidth="140.0">
+                                <AnchorPane prefHeight="28.0" prefWidth="125.0">
                                     <children>
-                                        <Button fx:id="IncreaseItem" layoutX="95.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" text="+" />
-                                        <Label fx:id="foodcounter" layoutX="57.0" layoutY="10.0" prefHeight="25.0" prefWidth="34.0" text="1" textAlignment="RIGHT">
+                                        <Button fx:id="IncreaseItem" layoutX="91.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #fa8072;" text="+" />
+                                        <Label fx:id="foodcounter" alignment="CENTER" layoutX="56.0" layoutY="13.0" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #b0e0e6;" text="1" textAlignment="RIGHT">
                                             <font>
                                                 <Font size="16.0" />
                                             </font>
                                         </Label>
-                                        <Button fx:id="decreaseItem" layoutX="22.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" text="-" />
+                                        <Button fx:id="decreaseItem" layoutX="22.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #fa8072;" text="-" />
                                     </children>
                                 </AnchorPane>
                             </children>
                         </HBox>
-                        <Button fx:id="Addtocard" layoutX="196.0" layoutY="98.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="182.0" text="ADD TO CARD" />
+                        <AnchorPane layoutX="214.0" layoutY="97.0" prefHeight="27.0" prefWidth="25.0">
+                            <children>
+                                <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Image/deleteIcon.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
                     </children>
                 </AnchorPane>
             </children>
