@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -51,6 +52,7 @@ public class NewThreadServer implements Runnable{
                 while (true) {
 
                     Object fromClient = nc.read();
+                    System.out.println("why" + fromClient);
 
                     if(fromClient instanceof LoginDataTransferObject)
                     {
@@ -77,7 +79,54 @@ public class NewThreadServer implements Runnable{
                             nc.write(LoginDTO);
                         }
 
+                    }else if(fromClient instanceof RestaurantLoginInfo)
+                    {
+                        System.out.println("From Restaurant..");
+
+                        RestaurantLoginInfo restaurantLoginInfo = new RestaurantLoginInfo();
+                        restaurantLoginInfo = (RestaurantLoginInfo) fromClient;
+                        if(PasswordList.containsKey(restaurantLoginInfo.getUserName()))
+                        {
+                            System.out.println("Valid Restaurart...");
+
+                            String realpass = PasswordList.get(restaurantLoginInfo.getUserName());
+//                            System.out.println(realpass);
+//                            System.out.println("user"+ restaurantLoginInfo.getUserName());
+                            if(realpass.equals(restaurantLoginInfo.getPassword()))
+                            {
+                                System.out.println("Restaurant log in");
+                                restaurantLoginInfo.setStatus(true);
+
+                                int id = Integer.parseInt(restaurantLoginInfo.getUserName());
+
+                                for (Restaurant r : ExtractedRestaurantList)
+                                {
+                                    if(r.getId() == id)
+                                    {
+                                        restaurantLoginInfo.setRestaurant(r);
+                                        //---..>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                        System.out.println(r.getName());
+                                        break;
+                                    }
+                                }
+
+
+
+                            }
+                            else{
+                                restaurantLoginInfo.setStatus(false);
+                            }
+
+                        }else{
+
+                            restaurantLoginInfo.setStatus(false);
+
+                        }
+                        nc.write(restaurantLoginInfo);
+
                     }
+
+
 
 
 
