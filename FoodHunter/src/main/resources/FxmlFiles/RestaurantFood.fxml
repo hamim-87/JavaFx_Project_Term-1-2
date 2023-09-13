@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="283.0" style="-fx-background-color: #add8e6; -fx-background-radius: 20,20,20,20; -fx-background-radius: 20,20,20,20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RestaurantFoodController">
+    <children>
+        <VBox layoutY="-4.0" prefHeight="127.0" prefWidth="307.0">
+            <children>
+                <AnchorPane prefHeight="125.0" prefWidth="300.0">
+                    <children>
+                        <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/foodCardlogo.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="foodName" layoutX="34.0" layoutY="22.0" text="Food">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="14.0" fitWidth="11.0" layoutX="19.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/foodCat.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="foodCat" layoutX="41.0" layoutY="54.0" prefHeight="17.0" prefWidth="232.0" text="cat" />
+                        <Label fx:id="foodprice" layoutX="42.0" layoutY="82.0" text="100.12">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="14.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Image/Foodprice.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

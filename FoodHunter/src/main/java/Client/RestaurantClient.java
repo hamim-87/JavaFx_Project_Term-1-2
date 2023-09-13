@@ -5,6 +5,7 @@ import Comunications.RestaurantLoginInfo;
 import Controllers.LoginController;
 import Controllers.RestaurantHomePageController;
 import Controllers.RestaurantLogInController;
+import DataBaseSystem.ClientFood;
 import DataBaseSystem.Restaurant;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.List;
 
 public class RestaurantClient extends Application {
     private Stage stage;
@@ -28,6 +30,10 @@ public class RestaurantClient extends Application {
     {
         return network;
     }
+
+    private RestaurantHomePageController homePageController;
+
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -87,6 +93,11 @@ public class RestaurantClient extends Application {
         Scene scene = new Scene(root);
 
         RestaurantHomePageController restaurantHomePageController = loader.getController();
+        homePageController = restaurantHomePageController;
+
+        restaurantHomePageController.setRestaurant(restaurantLoginInfo.getRestaurant());
+        restaurantHomePageController.init();
+
 
         stage.setScene(scene);
         stage.setTitle("Home Page");
