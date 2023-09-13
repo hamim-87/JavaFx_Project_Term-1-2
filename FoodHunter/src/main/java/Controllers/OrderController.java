@@ -1,6 +1,8 @@
 package Controllers;
 
+import Client.Main;
 import Comunications.LoginDataTransferObject;
+import Comunications.OrderList;
 import DataBaseSystem.ClientFood;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,13 +29,24 @@ public class OrderController {
     private Label totalprice;
 
     @FXML
-    void sendtorestaurant(ActionEvent event) {
+    void sendtorestaurant(ActionEvent event) throws IOException {
 
+        OrderList list = new OrderList();
+        list.setListOfFood(OrderedFoodList);
+        //
+        System.out.println(list.getListOfFood());
+
+
+            main.getNetwork().write(list);
 
 
     }
 
+    private Main main;
 
+    public void setMain(Main main) {
+        this.main = main;
+    }
 
 
 

@@ -1,10 +1,22 @@
 package DataBaseSystem;
 
-public class ClientFood{
+import java.io.Serializable;
+
+public class ClientFood implements Serializable {
 
     private  int FoodCount = 1;
 
     private String RestaurantName;
+
+    private String Username;
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
 
     public void setRestaurantName(String restaurantName) {
         RestaurantName = restaurantName;

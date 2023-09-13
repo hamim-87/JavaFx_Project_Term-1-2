@@ -150,8 +150,9 @@ public class Main extends Application {
         orderController.setOrderList(orderedfood);
 
         orderController.setLoginDTO(LoginDTO);
+        orderController.setMain(this);
         orderController.showOrderList();
-        //orderController.setMain(this);
+
 
 
         stage.setScene(scene);

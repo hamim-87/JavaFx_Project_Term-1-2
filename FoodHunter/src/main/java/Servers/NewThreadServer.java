@@ -124,6 +124,11 @@ public class NewThreadServer implements Runnable{
                         }
                         nc.write(restaurantLoginInfo);
 
+                    }else if( fromClient instanceof OrderList)
+                    {
+                        OrderList list = new OrderList();
+                        list = (OrderList) fromClient;
+                        System.out.println("serverside:" + list.getListOfFood());
                     }
 
 
