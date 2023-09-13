@@ -15,7 +15,12 @@ import java.util.concurrent.ConcurrentHashMap;
 public class NewThreadServer implements Runnable{
 
         private NetworkConnection nc;
-        private Socket clientSocket;
+
+    public NetworkConnection getNc() {
+        return nc;
+    }
+
+    private Socket clientSocket;
         private Thread t;
 
         private  Server server;
@@ -129,6 +134,7 @@ public class NewThreadServer implements Runnable{
                         OrderList list = new OrderList();
                         list = (OrderList) fromClient;
                         System.out.println("serverside:" + list.getListOfFood());
+                        server.SendToRestaurant(list);
                     }
 
 

@@ -2,6 +2,7 @@ package Client;
 
 import Comunications.LoginDataTransferObject;
 import Comunications.NetworkConnection;
+import Comunications.OrderList;
 import Comunications.RestaurantLoginInfo;
 import javafx.application.Platform;
 
@@ -61,8 +62,12 @@ public class ReaderThreadOfRestaurant implements Runnable{
                         Platform.runLater(() -> main.ShowAlert("Incorrect","Incorrect","Username or Password wrong"));
                     }
                 }
-                else{
-                    System.out.println("hehe");
+                else if(o instanceof OrderList){
+                   OrderList orderList = new OrderList();
+                   orderList = (OrderList) o;
+                    System.out.println("Restaurant found"+ orderList.getListOfFood());
+
+
                 }
             }
 

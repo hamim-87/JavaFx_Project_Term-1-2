@@ -31,9 +31,19 @@ public class Server {
 
     public ConcurrentHashMap<String,String> getPasswords() { return Passwords;}
 
+    private List<NewThreadServer> Allservers = new ArrayList<>();
+
+    public void SendToRestaurant(OrderList list) throws IOException {
+        for(NewThreadServer tr : Allservers)
+        {
+            System.out.println("how many server?");
+            tr.getNc().write(list);
+        }
+    }
 
 
-    Server() throws IOException, ClassNotFoundException {
+
+    Server() throws IOException {
         FileOperation FO = new FileOperation();
         ExtractedRestaurantList = FO.ReadFileForRestaurant();
         System.out.println("Restaurent is loaded..");
@@ -62,7 +72,8 @@ public class Server {
             System.out.println("Client connected..");
 
             // new Server Thread Start...
-            new NewThreadServer(socket,this);
+            NewThreadServer N = new NewThreadServer(socket,this);
+            Allservers.add(N);
 
         }
     }
