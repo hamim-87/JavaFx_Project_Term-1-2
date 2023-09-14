@@ -180,41 +180,44 @@ public class RestaurantHomePageController {
 
 
             for (int i = 0; i < clientFoodList.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/FxmlFiles/showRestaurantTheOrderCard.fxml"));
+                if(clientFoodList.get(i).getFood().getRestaurantId() == restaurant.getId())
+                {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/FxmlFiles/showRestaurantTheOrderCard.fxml"));
 
 
-                AnchorPane anchorPane = fxmlLoader.load();
+                    AnchorPane anchorPane = fxmlLoader.load();
 
-                showRestaurantTheOrderController controller = fxmlLoader.getController();
+                    showRestaurantTheOrderController controller = fxmlLoader.getController();
 
-                controller.setDataForOrders(clientFoodList.get(i),orderCompleted);
-                System.out.println("Restaurant home page" + clientFoodList.get(i).getUsername());
-
-
-                AnchorPane dummy1 = new AnchorPane();
-                dummy1.setMaxWidth(260);
-                dummy1.setMaxHeight(10);
+                    controller.setDataForOrders(clientFoodList.get(i),orderCompleted);
+                    System.out.println("Restaurant home page" + clientFoodList.get(i).getUsername());
 
 
-                if (i == 0) {
-                    orderGrid.add(dummy1, colom, row++);
+                    AnchorPane dummy1 = new AnchorPane();
+                    dummy1.setMaxWidth(260);
+                    dummy1.setMaxHeight(10);
 
+
+                    if (i == 0) {
+                        orderGrid.add(dummy1, colom, row++);
+
+                    }
+
+                    orderGrid.add(anchorPane, colom, row++);
+
+                    //width
+                    orderGrid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                    orderGrid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                    orderGrid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                    //height
+                    orderGrid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                    orderGrid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                    orderGrid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                    GridPane.setMargin(anchorPane, new Insets(10));
                 }
-
-                orderGrid.add(anchorPane, colom, row++);
-
-                //width
-                orderGrid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                orderGrid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                orderGrid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                //height
-                orderGrid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                orderGrid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                orderGrid.setMaxHeight(Region.USE_PREF_SIZE);
-
-                GridPane.setMargin(anchorPane, new Insets(10));
             }
         }
     }
