@@ -1,12 +1,16 @@
 package Controllers;
 
 import Client.RestaurantClient;
+import Comunications.FileOperation;
 import DataBaseSystem.ClientFood;
+import DataBaseSystem.Food;
 import DataBaseSystem.Restaurant;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -23,6 +27,40 @@ public class RestaurantHomePageController {
 
     @FXML
     private GridPane orderGrid;
+
+    @FXML
+    private TextField cat;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private TextField price;
+
+    @FXML
+    void AddFood(ActionEvent event) throws IOException {
+        String foodname = name.getText();
+        String foodprice = price.getText();
+        String foodcat = cat.getText();
+
+        name.setText("");
+        cat.setText("");
+        price.setText("");
+
+        String id = Integer.toString(restaurant.getId());
+        String line = id+foodcat+foodname+foodprice;
+
+        FileOperation FO = new FileOperation();
+        FO.setFoodString(line);
+        Food newFood = new Food(Integer.parseInt(id),foodcat,foodname,Double.parseDouble(foodprice));
+        restaurant.setFoodList(newFood);
+        main.ShowAlert("Food Added",foodname +" is added to the Restaurant","Successfully added" );
+        showFoodlist();
+
+
+
+
+    }
     private RestaurantClient main;
 
     public void setMain(RestaurantClient main) {

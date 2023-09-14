@@ -120,6 +120,7 @@ public class RestaurantClient extends Application {
         homePageController = restaurantHomePageController;
 
         restaurantHomePageController.setRestaurant(restaurantLoginInfo.getRestaurant());
+        restaurantHomePageController.setMain(this);
         restaurantHomePageController.setClientFoodList(ClientOrder);
         System.out.println("SHowreshomepage.."+ClientOrder);
         restaurantHomePageController.init();

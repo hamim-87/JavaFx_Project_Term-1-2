@@ -22,6 +22,11 @@ public class FileOperation implements Serializable{
 
     private List<Food> FoodList = new ArrayList<>();
 
+    public void setFoodString(String line)
+    {
+        FoodString.add(line);
+    }
+
     public  List<Restaurant> ReadFileForRestaurant() throws IOException {
         BufferedReader RestaurantBr = new BufferedReader(new FileReader(INPUT_FILE_RESTAURANT));
 
