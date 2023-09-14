@@ -36,7 +36,7 @@
                 </Pane>
                 <AnchorPane prefHeight="153.0" prefWidth="747.0">
                     <children>
-                        <ImageView fitHeight="39.0" fitWidth="46.0" layoutX="511.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="ResImage" fitHeight="39.0" fitWidth="46.0" layoutX="511.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Image/userLogo.png" />
                             </image>

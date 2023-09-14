@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -40,6 +41,15 @@ public class RestaurantHomePageController {
     private TextField price;
 
     private OrderCompleted orderCompleted;
+
+    @FXML
+    private Label Username;
+
+    public void setUsername(String username) {
+        Username.setText(username);
+    }
+
+
 
     @FXML
     void AddFood(ActionEvent event) throws IOException {
