@@ -51,7 +51,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="304.0" layoutY="93.0" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #ff6347; -fx-background-radius: 10;">
+                  <AnchorPane layoutX="304.0" layoutY="93.0" onMousePressed="#clickedCompleted" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #ff6347; -fx-background-radius: 10;">
                      <children>
                         <Label layoutX="15.0" layoutY="5.0" text="COMPLETED" />
                      </children>

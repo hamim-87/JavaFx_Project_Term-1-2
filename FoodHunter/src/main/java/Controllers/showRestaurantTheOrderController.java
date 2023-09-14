@@ -1,8 +1,13 @@
 package Controllers;
 
+import Client.Client;
+import Client.OrderCompleted;
 import DataBaseSystem.ClientFood;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
 
 public class showRestaurantTheOrderController {
 
@@ -22,10 +27,21 @@ public class showRestaurantTheOrderController {
     @FXML
     private Label foodprice;
 
+    private OrderCompleted orderCompleted;
+
+    private ClientFood clientFood;
+
+    @FXML
+    public void clickedCompleted(MouseEvent mouseEvent) throws IOException {
+        orderCompleted.CompletedClientFood(clientFood);
+    }
 
 
-    public void setDataForOrders(ClientFood clientFood)
+
+    public void setDataForOrders(ClientFood clientFood,OrderCompleted orderCompleted)
     {
+        this.clientFood = clientFood;
+        this.orderCompleted = orderCompleted;
         //if(name != null) {
             name.setText(clientFood.getUsername());
         //}

@@ -1,5 +1,7 @@
 package Controllers;
 
+import Client.Client;
+import Client.OrderCompleted;
 import Client.RestaurantClient;
 import Comunications.FileOperation;
 import DataBaseSystem.ClientFood;
@@ -36,6 +38,8 @@ public class RestaurantHomePageController {
 
     @FXML
     private TextField price;
+
+    private OrderCompleted orderCompleted;
 
     @FXML
     void AddFood(ActionEvent event) throws IOException {
@@ -141,10 +145,27 @@ public class RestaurantHomePageController {
         }
     }
 
+    public void CompleteTheOrder(ClientFood food) throws IOException {
+        System.out.println(food.getFood().getName());
+        orderGrid.getChildren().clear();
+        if(clientFoodList.contains(food))
+        {
+            clientFoodList.remove(food);
+        }
+        ShowOrders();
+    }
+
     public void ShowOrders() throws IOException {
 
         if(clientFoodList.size()>0) {
             int colom = 0, row = 0;
+
+            orderCompleted = new OrderCompleted() {
+                @Override
+                public void CompletedClientFood(ClientFood food) throws IOException {
+                    CompleteTheOrder(food);
+                }
+            };
 
 
 
@@ -157,7 +178,7 @@ public class RestaurantHomePageController {
 
                 showRestaurantTheOrderController controller = fxmlLoader.getController();
 
-                controller.setDataForOrders(clientFoodList.get(i));
+                controller.setDataForOrders(clientFoodList.get(i),orderCompleted);
                 System.out.println("Restaurant home page" + clientFoodList.get(i).getUsername());
 
 
