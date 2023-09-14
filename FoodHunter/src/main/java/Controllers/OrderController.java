@@ -1,5 +1,6 @@
 package Controllers;
 
+import Client.FoodIncrease;
 import Client.Main;
 import Comunications.LoginDataTransferObject;
 import Comunications.OrderList;
@@ -27,6 +28,11 @@ public class OrderController {
 
     @FXML
     private Label totalprice;
+
+    public void setTotalprice(Double total)
+    {
+        totalprice.setText(Double.toString(total));
+    }
 
     @FXML
     void sendtorestaurant(ActionEvent event) throws IOException {
@@ -63,11 +69,36 @@ public class OrderController {
         this.loginDTO = loginDTO;
     }
 
+    private FoodIncrease foodIncrease;
+
+    public void increment(ClientFood food) throws IOException {
+        System.out.println(food.getFood().getName());
+        for(int i = 0;i<OrderedFoodList.size();i++)
+        {
+            if(food.getFood().getName().equals(OrderedFoodList.get(i).getFood().getName()))
+            {
+                OrderedFoodList.get(i).IncreaseFoodCount();
+                break;
+            }
+        }
+        setTotalprice(main.calculate(OrderedFoodList));
+        ClientFoodgrid.getChildren().clear();
+        showOrderList();
+
+    }
+
     public void showOrderList() throws IOException {
         if(OrderedFoodList.size()>0)
         {
 
             System.out.println(OrderedFoodList);
+
+            foodIncrease = new FoodIncrease() {
+                @Override
+                public void increse(ClientFood food) throws IOException {
+                    increment(food);
+                }
+            };
 
 
             int colom = 0,row = 0;
@@ -81,7 +112,7 @@ public class OrderController {
                 ClientFoodController clientFoodController = loader.getController();
                 clientFoodController.setRestaurantList(loginDTO.getRestaurantList());
 
-                clientFoodController.setDataForClient(OrderedFoodList.get(i));
+                clientFoodController.setDataForClient(OrderedFoodList.get(i),foodIncrease);
 
                 AnchorPane dummy1 = new AnchorPane();
                 dummy1.setMaxWidth(260);

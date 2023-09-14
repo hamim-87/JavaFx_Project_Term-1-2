@@ -136,6 +136,16 @@ public class Main extends Application {
 
     }
 
+    public Double calculate(List<ClientFood> orderedfood)
+    {
+        double sum = 0;
+        for(int i = 0;i<orderedfood.size();i++)
+        {
+            sum += (orderedfood.get(i).getFoodCount()*orderedfood.get(i).getFood().getPrice());
+        }
+        return sum;
+    }
+
     public void ShowOrders(List<ClientFood> orderedfood) throws IOException {
 
 
@@ -148,6 +158,7 @@ public class Main extends Application {
         OrderController orderController = loader.getController();
 
         orderController.setOrderList(orderedfood);
+        orderController.setTotalprice(calculate(orderedfood));
 
         orderController.setLoginDTO(LoginDTO);
         orderController.setMain(this);

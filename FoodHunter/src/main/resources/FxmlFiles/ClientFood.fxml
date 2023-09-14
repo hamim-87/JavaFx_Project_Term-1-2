@@ -55,7 +55,7 @@
                             <children>
                                 <AnchorPane prefHeight="28.0" prefWidth="125.0">
                                     <children>
-                                        <Button fx:id="IncreaseItem" layoutX="91.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #fa8072;" text="+" />
+                                        <Button fx:id="IncreaseItem" layoutX="91.0" layoutY="13.0" mnemonicParsing="false" onAction="#increaseClick" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #fa8072;" text="+" />
                                         <Label fx:id="foodcounter" alignment="CENTER" layoutX="56.0" layoutY="13.0" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #b0e0e6;" text="1" textAlignment="RIGHT">
                                             <font>
                                                 <Font size="16.0" />

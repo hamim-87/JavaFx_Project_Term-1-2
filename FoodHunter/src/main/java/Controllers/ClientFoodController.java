@@ -1,11 +1,15 @@
 package Controllers;
 
+import Client.FoodIncrease;
 import DataBaseSystem.ClientFood;
 import DataBaseSystem.Restaurant;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +35,8 @@ public class ClientFoodController {
     @FXML
     private Label restaurant;
 
+    private FoodIncrease foodIncrease;
+
     private List<Restaurant> restaurantList = new ArrayList<>();
 
     public void setRestaurantList(List<Restaurant> list)
@@ -50,9 +56,17 @@ public class ClientFoodController {
         return "Not Found";
     }
 
+    private ClientFood food;
 
-    public void setDataForClient(ClientFood clientFood)
+    public void increaseClick(ActionEvent actionEvent) throws IOException {
+        foodIncrease.increse(food);
+    }
+
+
+    public void setDataForClient(ClientFood clientFood,FoodIncrease foodIncrease)
     {
+        this.foodIncrease = foodIncrease;
+        this.food = clientFood;
         foodName.setText(clientFood.getFood().getName());
         foodcounter.setText(Integer.toString(clientFood.getFoodCount()));
         foodprice.setText(Double.toString(clientFood.getFood().getPrice()));
